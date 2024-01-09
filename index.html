@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Firebase Realtime DB TODO List Web App</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+            integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container py-5">
+
+            <div id="userDisplay" style="display: none;">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div>
+                        <h1>To-Do List</h1>
+                        <p class="mb-0">Logged in as: <strong id="userEmail"></strong></p>
+                    </div>
+                    <button type="button" class="btn btn-success" id="logoutBtn">Logout</button>
+                </div>
+
+                <form id="taskForm">
+                    <input type="hidden" id="hiddenId">
+                    <input type="hidden" id="taskOwnerId">
+                    <div class="mb-3">
+                        <label for="task" class="form-label">Task</label>
+                        <input type="text" class="form-control" id="task">
+                    </div>
+                    <div class="mb-3">
+                        <label for="details" class="form-label">Details</label>
+                        <textarea class="form-control" id="details"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add / Update</button>
+                </form>
+
+                <ul id="tasks" class="mt-5">
+                </ul>
+            </div>
+
+            <div id="loginForm" class="card mx-auto" style="max-width: 480px;">
+                <div class="card-body">
+                    <h2>Login</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" required autofocus>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <p id="errorMessage" class="text-danger mb-3"></p>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+        <script module src="./src/index.js"></script>
+    </body>
+
+</html>
